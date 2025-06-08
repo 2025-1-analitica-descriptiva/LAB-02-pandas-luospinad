@@ -5,6 +5,7 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
+from homework.load_input import load_input
 
 def pregunta_08():
     """
@@ -22,3 +23,10 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
+
+    file_path = 'files/input'
+    dataframe = load_input(file_path, 0)
+    dataframe["suma"] = dataframe["c0"] + dataframe["c2"] 
+    print(dataframe)
+
+    return dataframe

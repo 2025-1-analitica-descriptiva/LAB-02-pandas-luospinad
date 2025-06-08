@@ -5,7 +5,7 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
-
+from homework.load_input import load_input
 def pregunta_06():
     """
     Retorne una lista con los valores unicos de la columna `c4` del archivo
@@ -15,3 +15,8 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
+    file_path = 'files/input'
+    dataframe = load_input(file_path, 1)
+    df_unique = dataframe.sort_values(by="c4")["c4"].str.upper().unique().tolist()
+
+    return df_unique

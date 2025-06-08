@@ -5,6 +5,7 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
+from homework.load_input import load_input
 
 def pregunta_10():
     """
@@ -20,3 +21,10 @@ def pregunta_10():
     D                   1:2:3:5:5:7
     E   1:1:2:3:3:4:5:5:5:6:7:8:8:9
     """
+
+    file_path = 'files/input'
+    dataframe = load_input(file_path, 0)
+    df_join = dataframe.groupby("c1")["c2"].agg(lambda x: ':'.join(map(str, sorted(x))))
+    df_join = df_join.to_frame()
+
+    return df_join
